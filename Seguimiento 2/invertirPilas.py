@@ -1,44 +1,20 @@
 from collections import deque
-from typing import Any
 
-
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
-
-
-def reverse(self):
-    prev = None
-    current = self.head
-    while(current is not None):
-         next = current.next
-         current.next = prev
-         prev = current
-         current = next
-    self.head = prev
-
-
-
-
-def invertir(head: Node, nuevo=None):
+def mensaje(s):
     pila = deque()
-    n = 0
-    if head is not None:
-        while n < 5:
-            pila.append(Node(head))
-            nuevo.next = head
-    print(pila)
+    open = '('
+    close = ')'
+    contador = 0
 
-
-""""
-    class Node:
-        def __init__(self, val: int):
-            self.val = val
-            self.next = None
-
-    def insertarAlInicio(head: Node, valor: int) -> Node:
-        nuevo = Node(val=valor)
-        nuevo.next = head
-        return nuevo
-"""
+    for i in s:
+        if i in open:
+            pila.append(i)
+        elif i in close:
+            pos = close.index(i)
+            if len(pila) > 0 and (open[pos] == pila[len(pila) - 1]):
+                pila.pop()
+                contador += 2
+    if len(pila) == 0:
+        return contador
+    else:
+        return contador
