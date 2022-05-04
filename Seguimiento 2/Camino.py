@@ -1,4 +1,4 @@
-import collections from collections
+from collections import deque
 
 def obtenerLosVerticesQueSonVecinosDeUnVertice(matriz, vertice):
     laFilaDondeEstanLosVecinosDeUnVertice = matriz[vertice]
@@ -20,6 +20,6 @@ def camino(matriz,origen,destino,conjuntoDeVisitados):
     for vecino in losVecinos:
         if vecino not in conjuntoDeVisitados:
             puedoLLegarDelVecinoAlDestino = camino(matriz,vecino,destino)
-                if puedoLLegarDelVecinoAlDestino == True:
-                    return True
+                #if puedoLLegarDelVecinoAlDestino == True:
+                    #return True
         return False
